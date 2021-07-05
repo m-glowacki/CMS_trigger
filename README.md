@@ -27,9 +27,11 @@ git clone git@github.com:m-glowacki/CMS_trigger.git CMS_trigger
 NOTE: use SSH and NOT https protocol.
 ```
 
+#### Step 3: Set up environment
+
 ```bash
-PythonVer=3  # do PythonVer=2 for Python 2, but Python 3 is recommended
-MINICONDA_DIR=/software/$USER/miniconda3  # change to wherever you like (/software/ is Bristol-specific)
+PythonVer=3  
+MINICONDA_DIR=/software/$USER/miniconda3  # change to wherever you like 
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh -b -p $MINICONDA_DIR
 rm Miniconda3-latest-Linux-x86_64.sh
@@ -49,7 +51,7 @@ Then you can do the following to create a bash script for easy initialisation of
 run by doing: `source start_trigger_env.sh`
 
 ```bash
-init_script="$HOME/start_chip_env.sh"  # change to whatever you want
+init_script="$HOME/start_trigger_env.sh"  # change to whatever you want
 echo "MINICONDA_DIR=$MINICONDA_DIR
 TRIGGER_SOFTWARE=$TRIGGER_SOFTWARE
 source \$MINICONDA_DIR/etc/profile.d/conda.sh
