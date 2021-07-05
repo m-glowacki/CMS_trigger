@@ -1,4 +1,4 @@
-#L1 Triggering
+# L1 Triggering
 
 Instructions and scripts for CMS L1 Triggering using Machine Learning.
 
@@ -38,6 +38,7 @@ source $MINICONDA_DIR/etc/profile.d/conda.sh
 conda update -y -n base -c defaults conda
 export PYTHONNOUSERSITE=true
 
+cd CMS_trigger
 conda env create -f requirements.yaml
 conda activate trigger_env
 
