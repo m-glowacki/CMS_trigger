@@ -42,7 +42,6 @@ cd CMS_trigger
 conda env create -f requirements.yaml
 conda activate trigger_env
 
-cd $CHIP_SOFTWARE
 export PYTHONPATH="$PWD:$PYTHONPATH"
 ```
 
