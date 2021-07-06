@@ -20,7 +20,7 @@ mkdir -p $LOC && cd $LOC
 
 #### Step 2: Clone this repository
 
-Note that you might have to create ssh keys and add them to your GitHub account for this to work (see [here](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)). Or you can clone with https if you prefer.
+Note that you might have to create ssh keys and add them to your GitHub account for this to work (see [here](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)).
 
 ```bash
 git clone git@github.com:m-glowacki/CMS_trigger.git CMS_trigger
