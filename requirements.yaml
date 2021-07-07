@@ -3,9 +3,6 @@ dependencies:
   # Requirements for fit plotting
   - python=3.7
   - pip>=21.0.1
-  - conda-forge::xrootd
-  - conda-forge::root=6.20.04  # specific version to ensure plots made with ROOT look good
-  - llvmlite>=0.34
   - numpy
   - keras
   - tensorflow
