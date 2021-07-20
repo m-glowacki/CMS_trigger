@@ -28,8 +28,7 @@ def make_dataset(file, directory):
 
 def main(directory, outdir, plot, make_data, topology):
     file_list = os.listdir(directory)
-    file_list = file_list[:100]
-
+    
     TH2D = uproot.open(f"{directory}/{file_list[0]}")['caloGrid']
     TH2D.numpy()
     OneEvent = namedtuple("OneEvent", "data bins xlabel ylabel")
