@@ -1,4 +1,4 @@
-name: trigger_env
+name: ml_env
 dependencies:
   # Requirements for fit plotting
   - python=3.7
