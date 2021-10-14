@@ -1,6 +1,6 @@
 # L1 Triggering
 
-Instructions and scripts for CMS L1 Triggering using Machine Learning.
+Instructions and scripts for CMS Machine Learning workflows.
 
 ## Instructions to set things up:
 
@@ -13,8 +13,8 @@ You'll need the `anaconda` or `miniconda` environment manager. This will ensure 
 #### Step 1: Make a directory for this work:
 
 ```bash
-LOC=/software/$USER/triggering_software  # set this to wherever you like
-TRIGGER_SOFTWARE=${LOC}/trigger
+LOC=/software/$USER/ML_software 
+ML_SOFTWARE=${LOC}/software
 mkdir -p $LOC && cd $LOC
 ```
 
@@ -23,8 +23,8 @@ mkdir -p $LOC && cd $LOC
 Note that you might have to create ssh keys and add them to your GitHub account for this to work (see [here](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)).
 
 ```bash
-git clone git@github.com:m-glowacki/CMS_trigger.git CMS_trigger
-NOTE: use SSH and NOT https protocol.
+git clone <your repo>
+NOTE: make sure your repo contains an "environment.yaml" file which contains all the packages you wish to install.
 ```
 
 #### Step 3: Set up environment
@@ -40,23 +40,23 @@ source $MINICONDA_DIR/etc/profile.d/conda.sh
 conda update -y -n base -c defaults conda
 export PYTHONNOUSERSITE=true
 
-cd CMS_trigger
+cd ML_software
 conda env create -f requirements.yaml
-conda activate trigger_env
+conda activate ml_env
 
 export PYTHONPATH="$PWD:$PYTHONPATH"
 ```
 
 Then you can do the following to create a bash script for easy initialisation of the environment in the future:
-run by doing: `source start_trigger_env.sh`
+run by doing: `source start_ml_env.sh`
 
 ```bash
-init_script="$HOME/start_trigger_env.sh"  # change to whatever you want
+init_script="$HOME/start_ml_env.sh"  
 echo "MINICONDA_DIR=$MINICONDA_DIR
-TRIGGER_SOFTWARE=$TRIGGER_SOFTWARE
+ML_SOFTWARE=$ML_SOFTWARE
 source \$MINICONDA_DIR/etc/profile.d/conda.sh
-conda activate trigger_env
-cd \$TRIGGER_SOFTWARE
+conda activate ml_env
+cd \$ML_SOFTWARE
 export PYTHONNOUSERSITE=true
 export PYTHONPATH=\"\$PWD:\$PYTHONPATH\"" > $init_script
 ```
