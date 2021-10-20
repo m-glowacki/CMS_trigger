@@ -10,6 +10,7 @@ dependencies:
   - seaborn
   - matplotlib
   - pip:
+    - tables
     - uproot==3.11.3 
     - atsge>0.1.11
     - numba!=0.47.0
