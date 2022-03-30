@@ -23,5 +23,6 @@ dependencies:
     - socket
     - tqdm
     - QKeras
+    - hls4ml
   - plotly::plotly>4.14.0
   - plotly::plotly-orca>1.3.0
