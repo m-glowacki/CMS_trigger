@@ -60,3 +60,5 @@ cd \$ML_SOFTWARE
 export PYTHONNOUSERSITE=true
 export PYTHONPATH=\"\$PWD:\$PYTHONPATH\"" > $init_script
 ```
+
+on the DICE network a training set is already prepared here: `/software/ys20884/training_data`
