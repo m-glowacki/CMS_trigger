@@ -47,7 +47,7 @@ def main(directory, outdir, plot, make_data, topology):
         event_list = []
         print("Buidling DAG...")
         for i, file in enumerate(file_list):
-            event_list.append(make_dataset(file, directory, outdir, i))
+            event_list.append(make_dataset(file, directory, outdir, i, topology))
         print("Computing...")
         with ProgressBar():
              _ = d.compute(*event_list)
