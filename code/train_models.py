@@ -36,21 +36,21 @@ def create_keras_model(tensorflow):
     inputs = model.add(Input(shape=(20,12,1), name="input_1"))
     model.add(Conv2D(4, kernel_size=(3,3), input_shape=(20,12,1)))
     model.add(MaxPooling2D(pool_size=(2,2), padding='valid'))
-    model.add(Dropout(0.75))
+    model.add(Dropout(0.1))
     model.add(BatchNormalization(axis=1))
     model.add(Activation('relu'))
     
     #2nd layer
     model.add(Conv2D(8, kernel_size=(3,3)))
     model.add(MaxPooling2D(pool_size=(2,2), padding='valid'))
-    model.add(Dropout(0.75))
+    model.add(Dropout(0.1))
     model.add(BatchNormalization(axis=1))
     model.add(Activation('relu'))
     
     #output layer
     model.add(Flatten())
     model.add(Dense(64))
-    model.add(Dropout(0.75))
+    model.add(Dropout(0.1))
     model.add(BatchNormalization(axis=1))
     model.add(Activation('relu'))
     model.add(Dense(1))
@@ -76,21 +76,21 @@ def create_model_q_model(tensorflow):
     inputs = model.add(Input(shape=(20,12,1), name="input_1"))
     model.add(QConv2D(4, kernel_size=(3,3), kernel_quantizer=quantized_bits(5),bias_quantizer=quantized_bits(5), input_shape=(20,12,1)))
     model.add(MaxPooling2D(pool_size=(2,2), padding='valid'))
-    model.add(Dropout(0.75))
+    model.add(Dropout(0.1))
     model.add(QBatchNormalization(axis=1))
     model.add(QActivation('quantized_relu(5,0)'))
     
     #2nd layer
     model.add(QConv2D(8,kernel_quantizer=quantized_bits(5),bias_quantizer=quantized_bits(5), kernel_size=(3,3)))
     model.add(MaxPooling2D (pool_size=(2,2), padding='valid'))
-    model.add(Dropout(0.75))
+    model.add(Dropout(0.1))
     model.add(QBatchNormalization(axis=1))
     model.add(QActivation('quantized_relu(5,0)'))
 
     #3rd layer
     model.add(Flatten())
     model.add(QDense(64,kernel_quantizer=quantized_bits(5),bias_quantizer=quantized_bits(5)))
-    model.add(Dropout(0.75))
+    model.add(Dropout(0.1))
     model.add(QBatchNormalization(axis=1))
     model.add(QActivation('quantized_relu(5,0)'))
 
@@ -100,7 +100,7 @@ def create_model_q_model(tensorflow):
 
     model.build(input_shape=(20,12,1))
 
-    opt = tf.keras.optimizers.Adam(0.001)
+    opt = tf.keras.optimizers.SGD(learning_rate=0.01, nesterov=True)
 
     model.compile(loss='binary_crossentropy', optimizer=opt, metrics=['binary_accuracy'])
     return model
